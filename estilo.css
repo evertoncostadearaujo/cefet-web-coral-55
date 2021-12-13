@@ -1,122 +1,210 @@
 /* EXERCÍCIO 1: fontes */
+
+
 /* importá-las aqui... e definir as `font-family` da turminha... */
 
+@import "fonts/ravie.css";
+@import "fonts/verdana.css";
+:root {
+    --cor-de-fundo: #fff;
+    --cor-strong: #d027aa;
+    --recipiente-back-img: linear-gradient(to bottom, #f6f1b2, #4599b2 80%);
+    --recipiente-border: #d3d3d3;
+    --cardapio-back-img: rgba(255, 255, 255, 0.2);
+    --cardapio-border: #aac0ae;
+    --cor-h2-h3-article: #333;
+    --cor-h1: #e90c0c;
+}
 
 body {
-  background-color: #fff;
+    background-color: var(--cor-de-fundo);
+    min-height: 100vh;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+html {
+    min-height: 100vh;
+}
+
+h1 {
+    font-family: "Ravie", sans-serif;
+}
+
+h2,
+h3 {
+    font-family: "Verdana", "OpenSans", sans-serif;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 strong {
-  color: #d027aa;
+    color: var(--cor-strong);
 }
 
 #recipiente {
-  background-image: linear-gradient(to bottom, #f6f1b2, #4599b2 80%);
-  border-left: 1px solid #d3d3d3;
-  border-right: 1px solid #d3d3d3;
+    background-image: var(--recipiente-back-img);
+    border-left: 1px solid var(--recipiente-border);
+    border-right: 1px solid var(--recipiente-border);
 }
 
 #cardapio {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-top: 1px solid #aac0ae;
-  border-bottom: 1px solid #aac0ae;
-  border-left: 1px solid #aac0ae;
+    background-color: var(--cardapio-back-img);
+    border-top: 1px solid var(--cardapio-border);
+    border-bottom: 1px solid var(--cardapio-border);
+    border-left: 1px solid var(--cardapio-border);
 }
 
 #cardapio h3 {
-  font-size: 18px;
-  color: #333;
-  margin-top: 30px;
+    font-size: 18px;
+    color: var(--cor-h2-h3-article);
+    margin-top: 30px;
 }
 
 #cardapio article {
-  font-size: 14px;
-  color: #333;
+    font-size: 14px;
+    color: var(--cor-h2-h3-article);
 }
 
 
 /* EXERCÍCIO 2: layout da página */
+
 #recipiente {
-  /* layout da página aqui */
-  /* ... */
-  /* ... */
-  /* ... */
-  /* ... */
+    width: 800px;
+    min-height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 154px 646px;
+    grid-template-rows: 100px auto 116px;
 }
 
 #cabecalho-pagina {
-
+    grid-column: 2/3;
+    grid-row: 1/2;
 }
 
 #lateral {
-
+    grid-column: 1/2;
+    grid-row: 1/4;
 }
 
 #cardapio {
-
+    grid-column: 2/3;
+    grid-row: 2/3;
 }
 
 #rodape-pagina {
-
+    grid-column: 2/3;
+    grid-row: 3/4;
 }
-
 
 
 /* EXERCÍCIO 3: cabeçalho da página */
-#cabecalho-pagina {
 
-}
+#cabecalho-pagina {}
 
 #cabecalho-pagina h1 {
-  margin: 0;
-  font-size: 36px;
-  color: #e90c0c;
-  font-weight: normal;
+    margin: 10px;
+    font-size: 36px;
+    color: var(--cor-h1);
+    font-weight: normal;
+    text-align: center;
 }
 
 #cabecalho-pagina h2 {
-  margin: 0;
-  font-size: 24px;
-  color: #333;
-  font-weight: normal;
+    margin: 10px;
+    font-size: 24px;
+    color: var(--cor-h2-h3-article);
+    font-weight: normal;
+    text-align: end;
 }
 
+
 /* EXERCÍCIO 4: cada item do menu */
+
 article {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 15px;
 }
 
 
 /* EXERCÍCIO 5: o rodapé */
+
 #rodape-pagina {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 46px;
+    margin-right: 15px;
+    margin-bottom: 25px;
 }
 
+
 /* EXERCÍCIO 6: lateral */
+
 #lateral {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 
 /* EXERCÍCIO 7: o ticket */
+
 #ticket {
+    position: fixed;
+    top: calc(50% - 84px/2);
+    transform: translateX(-50%);
 }
 
 #ticket:hover {
+    transform: translateX(0%);
+    transition: transform 300ms ease-in-out;
 }
 
 
 /* EXERCÍCIO 8: deslocamento no siri e peixe */
+
 #siri {
+    position: relative;
+    top: 17px;
+    left: -10px;
 }
 
 #peixe {
+    position: relative;
+    left: -44px;
 }
 
+
 /* EXERCÍCIO 9: bolhas - no HTML e no JS */
+
+
 /* --- */
 
 
 /* EXERCÍCIO 10: modo escuro */
+
+
 /* no início deste arquivo (depois dos @import), coloque
    as custom properties */
+
+
 /* coloque aqui a media query para sobrescrever o valor
    das custom properties para o modo escuro */
 
+@media (prefers-color-scheme: dark) {
+     :root {
+        --cor-de-fundo: #000;
+        --cor-strong: #e072dd;
+        --recipiente-back-img: linear-gradient(to bottom, #173f5b, #141227 80%);
+        --recipiente-border: #d3d3d3;
+        --cardapio-back-img: rgba(255, 255, 255, 0.2);
+        --cardapio-border: #aac0ae;
+        --cor-h2-h3-article: #fff;
+        --cor-h1: #e3493e;
+    }
+}
